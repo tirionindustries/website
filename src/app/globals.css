@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-black: #000000;
+  --color-deep: #040810;
+  --color-navy: #080f1e;
+  --color-steel: #0d1628;
+  --color-blue-dark: #0a1930;
+  --color-blue-mid: #0f2847;
+  --color-blue-glow: #1a4a8a;
+  --color-accent: #2a6dd4;
+  --color-accent-bright: #4a8fff;
+  --color-silver: #a8bcd0;
+  --color-silver-light: #c8d8e8;
+  --color-white-off: #e8f0f8;
+  --color-dim: #5a7090;
+  --color-line: rgba(42, 109, 212, 0.25);
+  --color-glow: rgba(74, 143, 255, 0.15);
+  --color-status-ok: #4dff91;
+  --color-status-warn: #ffb74d;
+  --color-status-alert: #ff5252;
+
+  --font-bebas: var(--font-bebas);
+  --font-rajdhani: var(--font-rajdhani);
+  --font-share-tech: var(--font-share-tech);
+
+  --animate-radar-sweep: radarSweep 4s linear infinite;
+  --animate-ticker: ticker 25s linear infinite;
+  --animate-pulse-dot: pulseDot 1.5s ease infinite;
+  --animate-fade-up: fadeUp 0.8s ease forwards;
+  --animate-row-appear: rowAppear 0.3s ease forwards;
+}
+
+@keyframes radarSweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rowAppear {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--color-black);
+  color: var(--color-white-off);
+  font-family: var(--font-rajdhani), sans-serif;
+  overflow-x: hidden;
+  cursor: crosshair;
+}
+
+/* Scan line overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.08) 2px,
+    rgba(0,0,0,0.08) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}

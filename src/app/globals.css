@@ -56,31 +56,31 @@
   to { opacity: 1; transform: translateX(0); }
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+@layer base {
+  html { scroll-behavior: smooth; }
 
-html { scroll-behavior: smooth; }
+  body {
+    background: var(--color-black);
+    color: var(--color-white-off);
+    font-family: var(--font-rajdhani), sans-serif;
+    overflow-x: hidden;
+    cursor: crosshair;
+  }
 
-body {
-  background: var(--color-black);
-  color: var(--color-white-off);
-  font-family: var(--font-rajdhani), sans-serif;
-  overflow-x: hidden;
-  cursor: crosshair;
-}
-
-/* Scan line overlay */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0,0,0,0.08) 2px,
-    rgba(0,0,0,0.08) 4px
-  );
-  pointer-events: none;
-  z-index: 9999;
+  /* Scan line overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.08) 2px,
+      rgba(0,0,0,0.08) 4px
+    );
+    pointer-events: none;
+    z-index: 9999;
+  }
 }

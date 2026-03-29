@@ -1,9 +1,27 @@
-const domains = [
-  { icon: "AIR", name: "Air Domain", sub: "Aircraft · Flight Patterns · Airspace" },
-  { icon: "SEA", name: "Maritime", sub: "Vessels · Ports · Coastal Activity" },
-  { icon: "GND", name: "Ground", sub: "Events · Movements · Border Activity" },
-  { icon: "SPC", name: "Space", sub: "Satellite Imagery · Thermal · Environmental" },
-  { icon: "SIG", name: "Sensors", sub: "Signals · Open Source · Pattern Analysis" },
+"use client";
+
+import dynamic from "next/dynamic";
+import type { ComponentType } from "react";
+
+const AirRadar = dynamic(() => import("./tactical/AirRadar"), { ssr: false });
+const SeaSonar = dynamic(() => import("./tactical/SeaSonar"), { ssr: false });
+const GndTerrain = dynamic(() => import("./tactical/GndTerrain"), { ssr: false });
+const SpcOrbital = dynamic(() => import("./tactical/SpcOrbital"), { ssr: false });
+const SigSignals = dynamic(() => import("./tactical/SigSignals"), { ssr: false });
+
+interface DomainData {
+  icon: string;
+  name: string;
+  sub: string;
+  View: ComponentType;
+}
+
+const domains: DomainData[] = [
+  { icon: "AIR", name: "Air Domain", sub: "Aircraft · Flight Patterns · Airspace", View: AirRadar },
+  { icon: "SEA", name: "Maritime", sub: "Vessels · Ports · Coastal Activity", View: SeaSonar },
+  { icon: "GND", name: "Ground", sub: "Events · Movements · Border Activity", View: GndTerrain },
+  { icon: "SPC", name: "Space", sub: "Satellite Imagery · Thermal · Environmental", View: SpcOrbital },
+  { icon: "SIG", name: "Sensors", sub: "Signals · Open Source · Pattern Analysis", View: SigSignals },
 ];
 
 export default function Domains() {
@@ -21,26 +39,53 @@ export default function Domains() {
           unified operational picture.
         </p>
       </div>
-      <div className="flex border border-line max-w-[1200px] max-md:flex-col">
-        {domains.map((d, i) => (
-          <div
-            key={d.icon}
-            className={`flex-1 px-6 py-10 transition-colors cursor-default hover:bg-accent/[0.06] ${
-              i < domains.length - 1 ? "border-r border-line max-md:border-r-0 max-md:border-b" : ""
-            }`}
-          >
-            <div className="font-[family-name:var(--font-bebas)] text-4xl text-accent-bright opacity-60 mb-4 tracking-[2px]">
-              {d.icon}
-            </div>
-            <p className="font-[family-name:var(--font-rajdhani)] text-[13px] font-semibold tracking-[4px] text-silver-light uppercase mb-2">
-              {d.name}
-            </p>
-            <p className="font-[family-name:var(--font-share-tech)] text-[10px] text-dim tracking-[1px]">
-              {d.sub}
-            </p>
-          </div>
+
+      {/* Tactical view grid */}
+      <div className="grid grid-cols-3 gap-5 max-w-[1200px] mb-12 max-md:grid-cols-1">
+        {domains.slice(0, 3).map((d) => (
+          <DomainCard key={d.icon} domain={d} />
+        ))}
+      </div>
+      <div className="grid grid-cols-2 gap-5 max-w-[800px] mx-auto max-md:grid-cols-1">
+        {domains.slice(3).map((d) => (
+          <DomainCard key={d.icon} domain={d} />
         ))}
       </div>
     </section>
+  );
+}
+
+function DomainCard({ domain }: { domain: DomainData }) {
+  const { icon, name, sub, View } = domain;
+  return (
+    <div className="group border border-line bg-navy/50 overflow-hidden transition-all hover:border-accent">
+      {/* Tactical display header */}
+      <div className="flex justify-between items-center px-3 py-2 bg-accent/[0.08] border-b border-line">
+        <span className="font-[family-name:var(--font-share-tech)] text-[9px] tracking-[3px] text-accent-bright uppercase">
+          {icon} {"// LIVE"}
+        </span>
+        <div className="flex items-center gap-1.5">
+          <div className="w-1.5 h-1.5 bg-status-ok rounded-full animate-[pulseDot_1.5s_ease_infinite]" />
+          <span className="font-[family-name:var(--font-share-tech)] text-[8px] text-status-ok tracking-[2px]">
+            ACTIVE
+          </span>
+        </div>
+      </div>
+
+      {/* Canvas/3D view */}
+      <div className="h-[240px] relative bg-black/40">
+        <View />
+      </div>
+
+      {/* Info footer */}
+      <div className="px-4 py-3 border-t border-line">
+        <p className="font-[family-name:var(--font-rajdhani)] text-[13px] font-semibold tracking-[4px] text-silver-light uppercase mb-1">
+          {name}
+        </p>
+        <p className="font-[family-name:var(--font-share-tech)] text-[10px] text-dim tracking-[1px]">
+          {sub}
+        </p>
+      </div>
+    </div>
   );
 }

@@ -10,7 +10,7 @@ const rows = [
 
 export default function Product() {
   return (
-    <section className="py-30 px-12 relative bg-deep border-t border-line max-md:px-5" id="product">
+    <section className="py-[120px] px-[48px] relative bg-deep border-t border-line max-md:px-5 max-md:py-[80px]" id="product">
       <div className="grid grid-cols-2 gap-20 items-center max-w-[1200px] mx-auto max-md:grid-cols-1 max-md:gap-10">
         {/* Left content */}
         <div>

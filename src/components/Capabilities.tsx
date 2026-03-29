@@ -9,7 +9,7 @@ const capabilities = [
 
 export default function Capabilities() {
   return (
-    <section className="py-30 px-12 relative bg-black max-md:px-5" id="capabilities">
+    <section className="py-[120px] px-[48px] relative bg-black max-md:px-5 max-md:py-[80px]" id="capabilities">
       <p className="font-[family-name:var(--font-share-tech)] text-[10px] tracking-[4px] text-accent uppercase mb-4 before:content-['[_'] after:content-['_]']">
         Core Capabilities
       </p>

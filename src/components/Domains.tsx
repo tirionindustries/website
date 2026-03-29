@@ -8,7 +8,7 @@ const domains = [
 
 export default function Domains() {
   return (
-    <section className="py-30 px-12 relative bg-deep border-t border-line max-md:px-5" id="domains">
+    <section className="py-[120px] px-[48px] relative bg-deep border-t border-line max-md:px-5 max-md:py-[80px]" id="domains">
       <div className="max-w-[600px] mb-16">
         <p className="font-[family-name:var(--font-share-tech)] text-[10px] tracking-[4px] text-accent uppercase mb-4 before:content-['[_'] after:content-['_]']">
           Intelligence Domains

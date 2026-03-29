@@ -1,7 +1,7 @@
 export default function CtaSection() {
   return (
     <section
-      className="py-30 px-12 relative bg-navy border-t border-line text-center overflow-hidden max-md:px-5"
+      className="py-[120px] px-[48px] relative bg-navy border-t border-line text-center overflow-hidden max-md:px-5 max-md:py-[80px]"
       id="contact"
     >
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(42,109,212,0.12)_0%,transparent_70%)] pointer-events-none" />

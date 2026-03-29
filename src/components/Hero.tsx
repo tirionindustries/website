@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="min-h-screen flex flex-col justify-center items-start px-12 relative overflow-hidden bg-[radial-gradient(ellipse_at_60%_40%,rgba(10,25,48,0.9)_0%,#000_70%)] max-md:px-5">
+    <section className="min-h-screen flex flex-col justify-center items-start px-12 pb-[120px] relative overflow-hidden bg-[radial-gradient(ellipse_at_60%_40%,rgba(10,25,48,0.9)_0%,#000_70%)] max-md:px-5">
       {/* Grid background */}
       <div
         className="absolute inset-0"
@@ -50,7 +50,7 @@ export default function Hero() {
         into a single operational picture.
       </p>
 
-      <div className="flex gap-4 items-center opacity-0 animate-[fadeUp_0.8s_ease_forwards_1.1s]">
+      <div className="flex gap-4 items-center opacity-0 animate-[fadeUp_0.8s_ease_forwards_1.1s] relative z-10">
         <a
           href="#contact"
           className="font-[family-name:var(--font-share-tech)] text-xs tracking-[3px] uppercase text-black bg-accent-bright py-4 px-9 no-underline transition-all hover:bg-white-off hover:-translate-y-px"

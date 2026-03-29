@@ -5,7 +5,7 @@ export default function Footer() {
         TIRION INDUSTRIES
       </span>
       <span className="font-[family-name:var(--font-share-tech)] text-[10px] text-accent tracking-[3px]">
-        // ARCHANGEL // ALL OTHERS WE MONITOR
+        {"// ARCHANGEL // ALL OTHERS WE MONITOR"}
       </span>
       <span className="font-[family-name:var(--font-share-tech)] text-[10px] text-dim tracking-[2px]">
         &copy; 2025 TIRION INDUSTRIES. ALL RIGHTS RESERVED.

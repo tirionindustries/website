@@ -28,7 +28,7 @@ export default function CtaSection() {
         </button>
       </div>
       <p className="font-[family-name:var(--font-share-tech)] text-[10px] text-dim tracking-[2px] relative">
-        // All inquiries reviewed within 48 hours. Clearance may be required.
+        {"// All inquiries reviewed within 48 hours. Clearance may be required."}
       </p>
     </section>
   );

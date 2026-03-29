@@ -24,7 +24,8 @@ export default function Capabilities() {
           >
             <div className="absolute top-0 left-0 w-0.5 h-0 bg-accent-bright transition-all group-hover:h-full" />
             <p className="font-[family-name:var(--font-share-tech)] text-[10px] text-accent tracking-[3px] mb-5">
-              {cap.num} //
+              {cap.num} {"//"}
+
             </p>
             <h3 className="font-[family-name:var(--font-bebas)] text-[26px] tracking-[3px] text-white-off mb-4 leading-[1.1]">
               {cap.title}

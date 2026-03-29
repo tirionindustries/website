@@ -7,10 +7,12 @@ import Domains from "@/components/Domains";
 import Audience from "@/components/Audience";
 import CtaSection from "@/components/CtaSection";
 import Footer from "@/components/Footer";
+import { FAQJsonLd } from "@/components/StructuredData";
 
 export default function Home() {
   return (
     <>
+      <FAQJsonLd />
       <Navbar />
       <Hero />
       <Ticker />

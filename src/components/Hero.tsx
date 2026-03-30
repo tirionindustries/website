@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="min-h-screen flex flex-col justify-center items-start px-12 pb-[120px] relative overflow-hidden bg-[radial-gradient(ellipse_at_60%_40%,rgba(10,25,48,0.9)_0%,#000_70%)] max-md:px-5">
+    <section className="min-h-screen flex flex-col justify-center items-start px-12 pt-20 pb-[120px] relative overflow-hidden bg-[radial-gradient(ellipse_at_60%_40%,rgba(10,25,48,0.9)_0%,#000_70%)] max-md:px-5">
       {/* Grid background */}
       <div
         className="absolute inset-0"

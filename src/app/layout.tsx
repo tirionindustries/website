@@ -21,8 +21,7 @@ const shareTechMono = Share_Tech_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
-  ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://tirionindustries.com");
+const siteUrl = "https://tirionindustries.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
